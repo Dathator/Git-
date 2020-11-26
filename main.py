@@ -14,7 +14,7 @@ class MyWidget(QMainWindow):
         self.pushButton.clicked.connect(self.run)
 
     def paintEvent(self, event):
-        if self.do_paint:
+        if self.do_paint is True:
             qp = QPainter()
             qp.begin(self)
             self.draw(qp)
@@ -24,10 +24,10 @@ class MyWidget(QMainWindow):
         self.do_paint = True
         self.repaint()
 
-    def draw(self):
+    def draw(self, qp):
         qp.setBrush(QColor(237, 255, 33))
-        r = randint(1, 309)
-        qp.drawEllipse(30, 90, r, r)
+        r = randint(1, 299)
+        qp.drawEllipse(30, 120, r, r)
 
 
 if __name__ == '__main__':
